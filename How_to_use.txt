@@ -1,0 +1,18 @@
+# Obtain the dimension (in nm) of mfi lattice you want to generate
+# (If present) -> Fins (Cuboidal fins): Height, Base edge (on smooth surface)
+# Smooth core: (Cubic type) Edge length 
+# 
+# Create a lattice map of 0's and 1's denoting where zeolite unit cell is present
+# For smooth cases: ./smooth_fixed_gas.py <edge length> <prefix name>
+
+# For finned cases: ./fins_fixed_gas_v5.py <fin base edge> <fin height> <fin pitch> <smooth edge length> <prefix name>
+
+# For comparing smooth with fin cases, it is imperative that the dimensions of the smooth core of both match. To chech, extract the dimensions of smooth core for the finned case, and subsititute them in file smooth_500_case.py to obtain exact number of unit cells in the smooth core of both
+
+# Create the site lattice using: ./Create_lattice_August2019_nptype_v4.py <prefix name>
+
+# To obtain multiple initial positions of the adsorbing molecule on a unique site in the exterior of this lattice, use: ./ip_allsites_v1_mmap.py <prefix name>
+
+# To create the rate matrix for hopping between all possible sites, use: ./rates.py <Type of Desorption>
+
+# To start the kMC, with the default conditions of "HighDesorption"
