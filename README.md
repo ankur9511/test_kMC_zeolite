@@ -61,19 +61,19 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
 ---
 
 ## How to use? ##
-### 1. Create a 3D matrix of the system composed of
+1. Create a 3D matrix of the system composed of
 
    * locations where mfi unit cells are present
    * locations of external "gas phase" where a modified unit cell is present
    * locations of the interface between zeolite and external "gas phase" 
    
-    Go to desired working directory  
+    * Go to desired working directory  
 
     `
     cd <path-to-working-directory>
     `
     
-    For a finned zeolite with,  
+    * For a finned zeolite with,  
         * Fin Width = L1 (nm),  
         * Fin Height = L2 (nm),  
         * Pitch of the square arrangement of fins = L3 (nm)
@@ -94,11 +94,11 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
         * Discretization of floating lengths into integral number of unit cells can cause loss or gain of one unit cell layer in the zeolite lattice
         * To overcome that, it is recommended to extract the exact number of unit cells in each dimension that make the smooth core of the finned zeolite and use that in the file smooth_500_case.py to obtain the exactly same zeolite lattice for the corresponding smooth zeolite
 
-### 2. Construct a 3D full-scale MFI-type lattice of sites and neighbors
+2. Construct a 3D full-scale MFI-type lattice of sites and neighbors
    * It is recommended to run this command as a batch job (assuming SLURM based batch scheduling) with sufficient job time
    * For benchmark: 100 nm case require ~ 5 min (Depending on machine). Larger sizes can take up to days.
    
-    Go to directory where above files were generated
+   * Go to directory where above files were generated
 
    `
    cd <path-to-working-directory>
@@ -108,13 +108,13 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
    sbatch -D <path-to-working-directory> --job-name=<> --error=<> --output=<> -n 1 -N 1 -t <> --mem=<> --wrap="Create_lattice_August2019_nptype_v4.py <prefix name>"
    `
 
-### 3. Create rate matrix for rate constants betwen possible sites
+3. Create rate matrix for rate constants betwen possible sites
    * By default, the rates are generated as specified by Forester and Smith et al. for the case of benzene diffusion in silicalite-1 at 300K.
    * An arbitrary value of rate constant is chosen to represent 
        * HighDesorption: rate constant of desorption higher than internal diffusion rate constant(s)
        * LowDesorption: rate constant of desorption lower than internal diffusion rate constant(s)
 
-    Choose your setting. The value used in work is "HighDesorption"
+   * Choose your setting. The value used in work is "HighDesorption"
 
     `
     cd <path-to-working-directory>
@@ -123,7 +123,7 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
     rates.py HighDesorption
     `
     
-### 4. Select possible initial positions of the adsorbing molecule in the system, for independent simulations
+4. Select possible initial positions of the adsorbing molecule in the system, for independent simulations
    * By default, only the external intersection-type sites (I) of the zeolite lattice in the system (that has an entrance/exit connection to an interface site) is a valid initial position of the adsorbing molecule.
    * Create a list of all such possible and unique external sites of the zeolite lattice and randomize their ordering.
    * This serves as the list of starting configuration of the adsorbing molecule, where each configuration is for an independent simulation
@@ -135,7 +135,7 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
    ip_allsites_v1_mmap.py <prefix name>
    `
 
-### 5. Run kMC simulation
+5. Run kMC simulation
    * By default, the current version assumed that the user is interested in successful adsorption into the zeolite lattice and termination of simulation when the adsorbing molecule exits from the zeolite lattice of the system
    * It is recommended to run atleast maximum of ( $10^5$ , total number of unique initial positions of the adsorbing molecule) simulations for reasonable statistics
    * The code runs the simulations serially, and therefore it is recommended to run as a batch job. Assuming SLURM,
