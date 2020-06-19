@@ -83,22 +83,23 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
         fins_fixed_gas_v5.py L1 L2 L3 L4 <prefix name>
         `
 
-    For a smooth zeolite with,  
+    * For a smooth zeolite with,  
         * Smooth cubic zeolite core of edge = L1 (nm),  
 
         `
         smooth_fixed_gas.py L1 <prefix name>
-        `
+        `  
 
-    To compare a smooth and finned lattice of with same edge length of cubic zeolite core:
-        * Discretization of floating lengths into integral number of unit cells can cause loss or gain of one unit cell layer in the zeolite lattice
-        * To overcome that, it is recommended to extract the exact number of unit cells in each dimension that make the smooth core of the finned zeolite and use that in the file smooth_500_case.py to obtain the exactly same zeolite lattice for the corresponding smooth zeolite
+    * To compare a smooth and finned lattice of with same edge length of cubic zeolite core:  
+        * Discretization of floating lengths into integral number of unit cells can cause loss or gain of one unit cell layer in the zeolite lattice  
+        * To overcome that, it is recommended to extract the exact number of unit cells in each dimension that make the smooth core of the finned zeolite and use that in the file smooth_500_case.py to obtain the exactly same zeolite lattice for the corresponding smooth zeolite  
 
-2. Construct a 3D full-scale MFI-type lattice of sites and neighbors
-   * It is recommended to run this command as a batch job (assuming SLURM based batch scheduling) with sufficient job time
-   * For benchmark: 100 nm case require ~ 5 min (Depending on machine). Larger sizes can take up to days.
+    
+2. Construct a 3D full-scale MFI-type lattice of sites and neighbors  
+   * It is recommended to run this command as a batch job (assuming SLURM based batch scheduling) with sufficient job time  
+   * For benchmark: 100 nm case require ~ 5 min (Depending on machine). Larger sizes can take up to days.  
    
-   * Go to directory where above files were generated
+   * Go to directory where above files were generated  
 
    `
    cd <path-to-working-directory>
@@ -108,13 +109,13 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
    sbatch -D <path-to-working-directory> --job-name=<> --error=<> --output=<> -n 1 -N 1 -t <> --mem=<> --wrap="Create_lattice_August2019_nptype_v4.py <prefix name>"
    `
 
-3. Create rate matrix for rate constants betwen possible sites
-   * By default, the rates are generated as specified by Forester and Smith et al. for the case of benzene diffusion in silicalite-1 at 300K.
-   * An arbitrary value of rate constant is chosen to represent 
-       * HighDesorption: rate constant of desorption higher than internal diffusion rate constant(s)
-       * LowDesorption: rate constant of desorption lower than internal diffusion rate constant(s)
+3. Create rate matrix for rate constants betwen possible sites  
+   * By default, the rates are generated as specified by Forester and Smith et al. for the case of benzene diffusion in silicalite-1 at 300K.  
+   * An arbitrary value of rate constant is chosen to represent  
+       * HighDesorption: rate constant of desorption higher than internal diffusion rate constant(s)  
+       * LowDesorption: rate constant of desorption lower than internal diffusion rate constant(s)  
 
-   * Choose your setting. The value used in work is "HighDesorption"
+   * Choose your setting. The value used in work is "HighDesorption"  
 
     `
     cd <path-to-working-directory>
@@ -123,11 +124,11 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
     rates.py HighDesorption
     `
     
-4. Select possible initial positions of the adsorbing molecule in the system, for independent simulations
-   * By default, only the external intersection-type sites (I) of the zeolite lattice in the system (that has an entrance/exit connection to an interface site) is a valid initial position of the adsorbing molecule.
-   * Create a list of all such possible and unique external sites of the zeolite lattice and randomize their ordering.
-   * This serves as the list of starting configuration of the adsorbing molecule, where each configuration is for an independent simulation
-
+4. Select possible initial positions of the adsorbing molecule in the system, for independent simulations  
+   * By default, only the external intersection-type sites (I) of the zeolite lattice in the system (that has an entrance/exit connection to an interface site) is a valid initial position of the adsorbing molecule.  
+   * Create a list of all such possible and unique external sites of the zeolite lattice and randomize their ordering.  
+   * This serves as the list of starting configuration of the adsorbing molecule, where each configuration is for an independent simulation  
+    
    `
    cd <path-to-working-directory>
    `  
