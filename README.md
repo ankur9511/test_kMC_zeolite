@@ -136,10 +136,10 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
    ip_allsites_v1_mmap.py <prefix name>
    `
 
-5. Run kMC simulation
-   * By default, the current version assumed that the user is interested in successful adsorption into the zeolite lattice and termination of simulation when the adsorbing molecule exits from the zeolite lattice of the system
-   * It is recommended to run atleast maximum of ( $10^5$ , total number of unique initial positions of the adsorbing molecule) simulations for reasonable statistics
-   * The code runs the simulations serially, and therefore it is recommended to run as a batch job. Assuming SLURM,
+5. Run kMC simulation  
+   * By default, the current version assumed that the user is interested in successful adsorption into the zeolite lattice and termination of simulation when the adsorbing molecule exits from the zeolite lattice of the system  
+   * It is recommended to run atleast maximum of ( 10^5 , total number of unique initial positions of the adsorbing molecule) simulations for reasonable statistics  
+   * The code runs the simulations serially, and therefore it is recommended to run as a batch job. Assuming SLURM,  
 
    `
    cd <path-to-working-directory>
