@@ -53,7 +53,9 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
 #### Resources required
 * In this version, the bottleneck of the resources is the generation of the full-scale MFI site lattice
 
-    - A new version is in the pipeline that would reduce the full-scale lattice to a single unit cell
+    - Use of numpy's memory map utility is implemented to reduce runtime memory usage
+
+    - A new version is in the works that would map the full-scale lattice to a single unit cell
 
 * The vitual and disk memory required for the generation of MFI site lattice (Create_lattice_August2019_nptype_v4.py) scales cubically with number of unit cells along a dimension
 
@@ -141,6 +143,7 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
 5. Run kMC simulation  
    * By default, the current version assumed that the user is interested in successful adsorption into the zeolite lattice and termination of simulation when the adsorbing molecule exits from the zeolite lattice of the system  
    * All data will also be generated in the same location specified by path-to-working-directory
+   * This version leverages numpy's memory mapping utility to minimize runtime memory usage - future version will reduce full lattice to single unit cell to overcome memory bottleneck
    * It is recommended to run atleast maximum of ( 10^5 , total number of unique initial positions of the adsorbing molecule) simulations for reasonable statistics  
    * The code runs the simulations serially, and therefore it is recommended to run as a batch job. Assuming SLURM,  
 
