@@ -9,6 +9,7 @@ https://doi.org/10.1038/s41563-020-0753-1
 
 #### Features:
 - Create MFI framework lattice for finned or smooth nanoparticle composed of intersections sites (I), straight channel sites (S), and zig-zag channel sites (Z)
+- About MFI framework (a zeolite): https://america.iza-structure.org/IZA-SC/framework.php?STC=MFI
 - Create a rate constants' matrix for hopping of adsorbing molecule from a site to it's neighboring sites
 - Run kMC simulation by choosing initial position of the adsorbing molecule
 - Collect trajectory and path length of the hopping molecule
