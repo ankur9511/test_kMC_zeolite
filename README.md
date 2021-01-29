@@ -94,6 +94,10 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
         smooth_fixed_gas.py L1 <prefix name>
         `  
 
+    * For other morphologies like sphere, cylinder
+        * Create a numpy matrix consisiting of 1's where a unit cell is present,  
+        * Save the matrix as .npy (users are encouraged to modify file smooth_fixed_gas.py for consistency) with a prefix name as desired by user = prefix name
+
     * To compare a smooth and finned lattice of with same edge length of cubic zeolite core:  
         * Discretization of floating lengths into integral number of unit cells can cause loss or gain of one unit cell layer in the zeolite lattice  
         * To overcome that, it is recommended to extract the exact number of unit cells in each dimension that make the smooth core of the finned zeolite and use that in the file smooth_500_case.py to obtain the exactly same zeolite lattice for the corresponding smooth zeolite  
@@ -101,7 +105,8 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
     
 2. Construct a 3D full-scale MFI-type lattice of sites and neighbors  
    * It is recommended to run this command as a batch job (assuming SLURM based batch scheduling) with sufficient job time  
-   * For benchmark: 100 nm case require ~ 5 min (Depending on machine). Larger sizes can take up to days.  
+   * For benchmark: 100 nm case require ~ 5 min (Depending on machine). Larger sizes can take up to days. 
+   * Independent of technique used for 3D matrix creation: Any morphology generated saved in .npy file with format of files as dictated in "smooth_fixed_gas.py" can be used for lattice generation
    
    * Go to directory where above files were generated  ,i.e. the directory referred above as path-to-working-directory
 
