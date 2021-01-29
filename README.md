@@ -76,8 +76,9 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
     * For a finned zeolite with,  
         * Fin Width = L1 (nm),  
         * Fin Height = L2 (nm),  
-        * Pitch of the square arrangement of fins = L3 (nm)
-        * Smooth cubic zeolite core of edge = L4 (nm),  
+        * Pitch of the square arrangement of fins = L3 (nm),
+        * Smooth cubic zeolite core of edge = L4 (nm),
+        * Output files will have a prefix name, as supplied by user = prefix name  
 
         `
         fins_fixed_gas_v5.py L1 L2 L3 L4 <prefix name>
@@ -85,6 +86,7 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
 
     * For a smooth zeolite with,  
         * Smooth cubic zeolite core of edge = L1 (nm),  
+        * Output files will have a prefix name, as supplied by user = prefix name
 
         `
         smooth_fixed_gas.py L1 <prefix name>
@@ -99,7 +101,7 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
    * It is recommended to run this command as a batch job (assuming SLURM based batch scheduling) with sufficient job time  
    * For benchmark: 100 nm case require ~ 5 min (Depending on machine). Larger sizes can take up to days.  
    
-   * Go to directory where above files were generated  
+   * Go to directory where above files were generated  ,i.e. the directory referred above as path-to-working-directory
 
    `
    cd <path-to-working-directory>
@@ -138,6 +140,7 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
 
 5. Run kMC simulation  
    * By default, the current version assumed that the user is interested in successful adsorption into the zeolite lattice and termination of simulation when the adsorbing molecule exits from the zeolite lattice of the system  
+   * All data will also be generated in the same location specified by path-to-working-directory
    * It is recommended to run atleast maximum of ( 10^5 , total number of unique initial positions of the adsorbing molecule) simulations for reasonable statistics  
    * The code runs the simulations serially, and therefore it is recommended to run as a batch job. Assuming SLURM,  
 
@@ -148,6 +151,14 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
    `
    sbatch -D <path-to-working-directory> --job-name=<> --error=<> --output=<> -n 1 -N 1 -t <> --mem=<> --wrap="KMC_fast_serial_memmap.py <prefix name> <first simulation number> <last simulation number> <Desorption type: HighDesorption or LowDesorption> <pdb file name for limited visualization>"
    `
+
+6. Plot data
+    * By default, data is generated above in the location <path-to-working-directory>
+    * You can plot data from completed simulation by using the python plotting file pathlength.py which has many default plot visualization settings
+
+   `
+   pathlength.py
+   `  
 ---
 
 ## Understanding the code
