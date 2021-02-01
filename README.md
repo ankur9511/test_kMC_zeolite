@@ -1,7 +1,7 @@
 # Generation, kMC simulation, and analysis of a finite sized finned mfi zeolite
 ---
 As used in the paper:
-Dai, H., Shen, Y., Yang, T. et al. Finned zeolite catalysts. Nat. Mater. 19, 1074–1080 (2020). 
+Dai, H., .., Agarwal, A., et al. Finned zeolite catalysts. Nat. Mater. 19, 1074–1080 (2020). 
 
 https://doi.org/10.1038/s41563-020-0753-1
 
