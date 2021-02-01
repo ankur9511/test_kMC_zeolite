@@ -126,7 +126,7 @@ You can now use the kMC scripts in any folder of your choice. This folder will b
    `
 
 3. Create rate matrix for rate constants betwen possible sites  
-   * By default, the rates are generated as specified by Forester and Smith J. Chem. Soc., Faraday Trans., 1997,93, 3249-3257 : for the case of benzene diffusion in silicalite-1 at 300K.  
+   * By default, the rates are generated as specified by Forester and Smith J. Chem. Soc., Faraday Trans., 1997,93, 3249-3257 https://doi.org/10.1039/A702063E : for the case of benzene diffusion in silicalite-1 at 300K.  
    * An arbitrary value of rate constant is chosen to represent  
        * HighDesorption: rate constant of desorption higher than internal diffusion rate constant(s)  
        * LowDesorption: rate constant of desorption lower than internal diffusion rate constant(s)  
